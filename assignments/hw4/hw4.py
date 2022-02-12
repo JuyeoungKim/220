@@ -24,7 +24,7 @@ def squares():
 
     # create a space to instruct user
     inst_pt = Point(width / 2, height - 10)
-    instructions = Text(inst_pt, "Click to move circle")
+    instructions = Text(inst_pt, "Click to move a square")
     instructions.draw(win)
 
     # builds a circle
@@ -122,15 +122,17 @@ def circle():
     dy = (click_2.getY() - click_1.getY()) ** 2
     radius = math.sqrt(dx + dy)
 
+    # Draw a circle
+    circle_1 = Circle(point_1, radius)
+    circle_1.draw(win)
+    circle_1.setFill("blue")
+
     # Display radius
     radius_num_pt = Point(250, 450)
     radius_num = Text(radius_num_pt, "Radius: " + " " + str(radius))
     radius_num.draw(win)
 
-    # Draw a circle
-    circle_1 = Circle(point_1, radius)
-    circle_1.draw(win)
-    circle_1.setFill("blue")
+
 
     # closing instructions
     close_pt = Point(250, 250)
@@ -141,20 +143,24 @@ def circle():
     win.getMouse()
     win.close()
 
+import math
+
 def pi2():
 
-    acc = 0
     # the number of terms to sum
     terms_sum = eval(input("Enter the number of terms to sum:"))
+    total = 0
 
+    # for loop
     for i in range(terms_sum):
+        num = (4 * (-1) ** i)
+        denom = ((2 * i) + 1)
+        total += (num / denom)
+    accuracy = math.pi - total
 
-        plus_minus = -1 ** i
-        num = 4
-        denom = (2 * i) - 1
-        total = acc + plus_minus * (num / denom)
-        print(total)
-
+    # print approx and accuracy
+    print("pi approximation:", total)
+    print("accuracy:", accuracy)
 
 
 if __name__ == '__main__':
