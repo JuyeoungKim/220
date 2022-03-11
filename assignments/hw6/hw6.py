@@ -58,28 +58,28 @@ def sum_n_cubes(number):
 
 
 def encode_better():
-    s = input("Enter the message: ")
-    k = input("Enter the key: ")
-    acc = " "
-    for i in range(len(s)):
-        c = s[i]
-        key = k[i % len(k)]
-        key = ord(key) - 97
-        y = ord(c) + key
-        z = chr(y)
-        acc += z
+    encoding = input("Enter the message: ")
+    key = input("Enter the key: ")
+    acc = ""
+    for i in range(len(encoding)):
+        character = encoding[i]
+        repeat = key[i % len(key)]
+        repeat = ord(repeat) - 65
+        repeat = ord(character) + repeat
+        done = chr(repeat)
+        acc += done
     print(acc)
 
 
 if __name__ == '__main__':
-    cash_converter()
-    encode()
-    res = sphere_area(13)
-    print(res)
-    res = sphere_volume(13)
-    print(res)
-    res = sum_n(100)
-    print(res)
-    res = sum_n_cubes(13)
-    print(res)
+    # cash_converter()
+    # encode()
+    # res = sphere_area(13)
+    # print(res)
+    # res = sphere_volume(13)
+    # print(res)
+    # res = sum_n(100)
+    # print(res)
+    # res = sum_n_cubes(13)
+    # print(res)
     encode_better()
