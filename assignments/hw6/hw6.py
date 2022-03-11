@@ -11,17 +11,14 @@ I certify that this assignment is my own work, but I discussed it with: <Juyeoun
 """
 from math import pi
 
-def cash_converter():
 
-    """Write a function called cash_converter() that asks the user for an integer and prints the
-    corresponding dollar value. Note that you must use the string method format()to produce the
-    expected result. Use eval() to accept user input, do not use int()."""
+def cash_converter():
 
     dollar_value = eval(input("enter an integer:"))
     print("$", '{:.2f}'.format(dollar_value))  # 소수점 몇번째 자리까지인지 외우자
 
-def encode():
 
+def encode():
     #input
     message = input("enter the message to be encoded:")
     integer = eval(input("enter an integer key value:"))
@@ -38,31 +35,40 @@ def encode():
 
 def sphere_area(radius):
     area = 4 * pi * radius ** 2
-    return float(area)
+    return area
 
 
 def sphere_volume(radius):
     volume = 4 / 3 * pi * radius ** 3
-    return float(volume)
+    return volume
 
 
 def sum_n(number):
     acc = 0
     for i in range(1, number + 1):
         acc += i
-    return int(acc)
+    return acc
 
 
 def sum_n_cubes(number):
     acc = 0
     for i in range(1, number + 1):
         acc += i * i * i
-    return int(acc)
+    return acc
 
 
 def encode_better():
-    pass
-
+    s = input("Enter the message: ")
+    k = input("Enter the key: ")
+    acc = " "
+    for i in range(len(s)):
+        c = s[i]
+        key = k[i % len(k)]
+        key = ord(key) - 97
+        y = ord(c) + key
+        z = chr(y)
+        acc += z
+    print(acc)
 
 
 if __name__ == '__main__':
