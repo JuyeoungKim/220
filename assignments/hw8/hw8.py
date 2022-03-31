@@ -34,19 +34,25 @@ def to_numbers(nums):
         nums[i] = eval(nums[i])
 
 
-def sum_of_squares(nums):
-    list_nums = nums.split()
-    to_numbers(nums)
-    square_each(nums)
-    sum_list(nums)
-    sum_list.append(nums)
+def sum_of_squares():
+    file_name = input("enter the file name")
+    infile = open(file_name, "r")
+    outfile = open("output.txt", "w+")
+    for line in infile:
+        nums = line.split()
+        to_numbers(nums)
+        square_each(nums)
+        sum_list(nums)
 
+    infile.close()
+    outfile.close()
 
 
 def starter(weight, wins):
     # conditions
     if weight >= 150 and weight < 160 and wins >= 5:
         return True
+
     elif weight > 199 or wins > 20:
         return True
 
@@ -60,7 +66,7 @@ def leap_year(year):
     return False
 
 
-from graphics import *
+from graphics import Circle
 import math
 
 
@@ -114,8 +120,12 @@ def did_overlap(circle_one, circle_two):
 
 
 if __name__ == '__main__':
-    # add_ten()
-    # square_each()
-    # sum_list()
-    # starter()
-    # leap_year()
+
+    add_ten()
+    square_each()
+    sum_list()
+    to_numbers()
+    sum_of_squares()
+    starter()
+    leap_year()
+    main()
