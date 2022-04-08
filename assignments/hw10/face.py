@@ -24,10 +24,10 @@ class Face:
         self.mouth.draw(window)
 
     def smile(self):
-        pass
+        return self.mouth
 
     def shock(self):
-        pass
+        return self.right_eye
 
     def wink(self):
-        pass
+        return self.left_eye.move
