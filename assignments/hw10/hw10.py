@@ -18,7 +18,7 @@ def fibonacci(n):
 
     if n < 1:
         return None
-    elif n == 1 or n == 2:
+    if n == 1 or n == 2:
         return 1
 
     while n >= count:
@@ -36,31 +36,57 @@ def double_investment(principle, rate):
     double = 2 * principle
 
     while amount <= double:
+        # the function should stop once the amount has doubled
+        if amount > double:
+            return None
         amount = principle * (1 + rate)
         year += 1
         principle = amount
     return year
 
 
-def syracuse(n):
+def syracuse(num):
     n_list = []
-    n_list.append(n)
+    n_list.append(num)
 
-    while n != 1:
-        if n == 1:
+    while num != 1:
+        if num == 1:
             break
 
-        elif n % 2 == 0:
-            n = int(n / 2)
-            n_list.append(n)
+        elif num % 2 == 0:
+            num = int(num / 2)
+            n_list.append(num)
 
         else:
-            n = 3 * n + 1
-            n_list.append(n)
+            num = 3 * num + 1
+            n_list.append(num)
 
     return n_list
 
-#
-# def goldbach(n):
-#     while
 
+def isprime(num):
+    i = 2
+    while i <= num / 2:
+        if num % i == 0:
+            return False
+        i = i + 1
+    return True
+
+def goldbach(n):
+    if n % 2 != 0:
+        return
+    i = 3
+    j = n - 1
+    while i < j:
+        if isprime(i) == True and isprime(j) == True:
+            if n == (i + j):
+                return [i, j]
+            elif n < (i + j):
+                j = j - 1
+            else:
+                i = i + 1
+        if isprime(i) == False:
+            i = i + 1
+        if isprime(j) == False:
+            j = j - 1
+    return
