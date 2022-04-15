@@ -37,12 +37,19 @@ class SalesPerson:
         return False
 
     def compare_to(self, other):
-        if other > self.total_sales():
+        self_total_sales = self.total_sales()
+        other_total_sales = other.total_sales()
+
+        if other_total_sales > self_total_sales:
             return -1
-        if other < self.total_sales():
+        if other_total_sales < self_total_sales:
             return 1
-        if other == self.total_sales():
+        if other_total_sales == self_total_sales:
             return 0
 
     def __str__(self):
-        return "{} - {} : {}".format(self.employee_id, self.name, self.total_sales)
+        rtn_str = "ID: " + str(self.employee_id)
+        rtn_str += "\nName: " + str(self.name)
+        rtn_str += "\nTotal Sales: " + str(self.total_sales())
+        return rtn_str
+
